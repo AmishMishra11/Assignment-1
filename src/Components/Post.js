@@ -21,7 +21,7 @@ function Post({ post }) {
     <div>
       <li className="p-2 font-semibold text-lg flex flex-col items-start justify-center ">
         <div
-          className="flex items-center cursor-pointer"
+          className="flex items-center cursor-pointer "
           onClick={() => {
             dispatchComment({ type: "SELECTED_POST", payload: postId });
 
