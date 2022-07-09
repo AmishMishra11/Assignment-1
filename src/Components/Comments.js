@@ -43,11 +43,11 @@ function Comments(postId) {
     <div className="flex items-start gap-5">
       <div className="flex flex-col items-start gap-4 ">
         <div className="flex items-center gap-6">
-          <h2 className="text-lg">Comments</h2>
+          <h2 className="text-xl  text-primary ">Comments</h2>
           <div className="flex items-center justify-start p-2 border-2 rounded-l-full rounded-r-full border-black text-sm ">
             <BiSearch className="text-xl" />
             <input
-              className="pl-2 outline-none"
+              className="pl-2 outline-none bg-slate-100"
               type="text"
               placeholder="Search"
               value={search}
@@ -56,11 +56,11 @@ function Comments(postId) {
           </div>
         </div>
 
-        <div className="  rounded-xl   border-2 border-gray-400 flex ">
+        <div className="  rounded-xl   border-2 border-gray-400 flex bg-background">
           <div className="flex flex-col items-start  ">
             <div className="flex items-center w-full border-b-2 border-gray-600">
               <h3 className="border-r-2 w-40 p-2 border-gray-600 ">Name</h3>
-              <h3 className=" w-96 p-2 ">Comments</h3>
+              <h3 className=" w-96 p-2  ">Comments</h3>
             </div>
             <div className="">
               {showComments.length ? (
@@ -78,7 +78,6 @@ function Comments(postId) {
                         {item.body}
                       </label>
                       <input
-                        className="bg-red"
                         type="checkbox"
                         id={item.id}
                         value={item.id}

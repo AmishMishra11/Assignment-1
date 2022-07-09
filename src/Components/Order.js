@@ -49,13 +49,16 @@ function Order({ tempPassedComments, setTempPassedComments }) {
   return (
     <div className="flex items-start justify-start flex-col">
       <div className="flex items-center justify-between pb-7 w-full ">
-        <h1 className="text-lg ">Set Order</h1>
-        <button className="pr-8" onClick={() => toast.success("Data Saved")}>
+        <h1 className="text-lg text-primary ">Set Order</h1>
+        <button
+          className="pr-8 text-background bg-primary p-2 rounded-lg"
+          onClick={() => toast.success("Data Saved")}
+        >
           Save
         </button>
       </div>
       <div className="flex items-center gap-2">
-        <div className="flex flex-col items-center justify-center border-2 border-gray-400 rounded-xl p-4 w-full">
+        <div className="flex flex-col items-center justify-center border-2 border-gray-400 rounded-xl p-4 w-full  bg-background">
           <DragDropContext onDragEnd={onEnd}>
             <Droppable droppableId="123">
               {(provided, snapshot) => (

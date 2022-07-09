@@ -16,18 +16,24 @@ function App() {
   const [display, setDisplay] = useState("active");
 
   return (
-    <div className="App p-5">
-      <h1 className="font-bold text-3xl">Manage Comments</h1>
+    <div className="App p-5 bg-slate-100">
+      <h1 className="font-bold text-3xl ">Manage Comments</h1>
 
       <div className="flex justify-start items-center py-3">
         <h3
-          className="p-2 m-2 text-lg cursor-pointer "
+          style={
+            display === "active" ? { color: "#A084CF" } : { color: "#9DD6DF" }
+          }
+          className="p-2 m-2 text-2xl cursor-pointer rounded-lg font-bold"
           onClick={() => setDisplay("active")}
         >
           Active Comments
         </h3>
         <h3
-          className="p-2 m-2 text-lg cursor-pointer "
+          style={
+            display === "delete" ? { color: "#A084CF" } : { color: "#9DD6DF" }
+          }
+          className="p-2 m-2 text-2xl cursor-pointer rounded-lg font-bold "
           onClick={() => setDisplay("delete")}
         >
           Deleted Comments

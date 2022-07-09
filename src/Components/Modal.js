@@ -25,7 +25,7 @@ function Modal({ setModalOpen, editCommentId, setTempPassedComments }) {
   };
 
   return (
-    <div className=" fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] border-2 bg-purple-400 p-4 rounded-lg flex flex-col items-start justify-between h-56 w-96">
+    <div className=" fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] border-2 bg-secondary p-4 rounded-lg flex flex-col items-start justify-between h-56 w-96">
       <h3>Edit Comment</h3>
 
       <div className="flex items-center justify-between w-full">
@@ -37,10 +37,16 @@ function Modal({ setModalOpen, editCommentId, setTempPassedComments }) {
       </div>
 
       <div className="flex  justify-end w-full">
-        <p className="p-2 cursor-pointer" onClick={() => setModalOpen(false)}>
+        <p
+          className="p-2 cursor-pointer bg-primary m-2 rounded-md text-background"
+          onClick={() => setModalOpen(false)}
+        >
           Cancel
         </p>
-        <p className="p-2 cursor-pointer" onClick={handleSave}>
+        <p
+          className="p-2 cursor-pointer bg-primary m-2 rounded-md text-background"
+          onClick={handleSave}
+        >
           Save
         </p>
       </div>
