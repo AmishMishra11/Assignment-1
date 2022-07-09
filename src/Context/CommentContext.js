@@ -1,17 +1,21 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
+import { CommentReducer } from "../Reducer/CommentReducer";
 import { getComments } from "../Services/Comments/GetCommentsApi";
 
 const CommentContext = createContext();
 
 const CommentContextProvider = ({ children }) => {
   useEffect(() => {
-    getComments(setAllComments);
+    getComments(dispatchComment);
   }, []);
 
-  const [allComments, setAllComments] = useState([]);
+  const [stateComment, dispatchComment] = useReducer(CommentReducer, {
+    allComments: [],
+    selectedPost: [],
+  });
 
   return (
-    <CommentContext.Provider value={{ allComments, setAllComments }}>
+    <CommentContext.Provider value={{ stateComment, dispatchComment }}>
       {children}
     </CommentContext.Provider>
   );
