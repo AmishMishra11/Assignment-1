@@ -116,6 +116,7 @@ function Order({ tempPassedComments, setTempPassedComments }) {
 
       {isModalOpen && (
         <Modal
+          isModalOpen={isModalOpen}
           setModalOpen={setModalOpen}
           editCommentId={editCommentId}
           setTempPassedComments={setTempPassedComments}

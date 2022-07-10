@@ -1,7 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useComment } from "../Context/CommentContext";
 
-function Modal({ setModalOpen, editCommentId, setTempPassedComments }) {
+function Modal({
+  isModalOpen,
+  setModalOpen,
+  editCommentId,
+  setTempPassedComments,
+}) {
+  const ref = useRef();
+
+  useEffect(() => {
+    const checkClickOutside = (e) => {
+      if (isModalOpen && ref.current && !ref.current.contains(e.target)) {
+        setModalOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", checkClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", checkClickOutside);
+    };
+  }, [isModalOpen, setModalOpen]);
+
   const { stateComment, dispatchComment } = useComment();
   const { allComments } = stateComment;
 
@@ -25,7 +46,10 @@ function Modal({ setModalOpen, editCommentId, setTempPassedComments }) {
   };
 
   return (
-    <div className=" fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] border-2 bg-secondary p-4 rounded-lg flex flex-col items-start justify-between h-56 w-96">
+    <div
+      ref={ref}
+      className=" fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] border-2 bg-secondary p-4 rounded-lg flex flex-col items-start justify-between h-56 w-96"
+    >
       <h3>Edit Comment</h3>
 
       <div className="flex items-center justify-between w-full">
